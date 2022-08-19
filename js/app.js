@@ -28,7 +28,7 @@ document
     const typeNumberField = document.getElementById("type-numbers");
     const previousTypeNumber = typeNumberField.value;
     if (isNaN(number)) {
-      console.log(number);
+      // console.log(number);
       if (number === "C") {
         typeNumberField.value = "";
       } else if (number === "<") {
@@ -43,3 +43,19 @@ document
       typeNumberField.value = newTypeNumber;
     }
   });
+
+document.getElementById("verify-pin").addEventListener("click", function () {
+  const displayPinField = document.getElementById("display-pin");
+  const currentPin = displayPinField.value;
+  const typeNumberField = document.getElementById("type-numbers");
+  const typeNumber = typeNumberField.value;
+  const pinSuccessMsg = document.getElementById("pin-success");
+  const pinFailureMsg = document.getElementById("pin-failure");
+  if (currentPin === typeNumber) {
+    pinSuccessMsg.style.display = "block";
+    pinFailureMsg.style.display = "none";
+  } else {
+    pinFailureMsg.style.display = "block";
+    pinSuccessMsg.style.display = "none";
+  }
+});
